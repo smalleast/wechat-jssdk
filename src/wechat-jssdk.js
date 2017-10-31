@@ -3,20 +3,20 @@
     module.exports = b(a);
   } else {
     "function" == typeof define && (define.amd || define.cmd) ? define(function () {
-        return b(a)
-      }) : b(a, !0)
+      return b(a)
+    }) : b(a, !0)
   }
-}(this || window, function (a, b) {
+}(window, function (a, b) {
   function c(b, c, d) {
     a.WeixinJSBridge ? WeixinJSBridge.invoke(b, e(c), function (a) {
-        h(b, a, d)
-      }) : k(b, d)
+      h(b, a, d)
+    }) : k(b, d)
   }
 
   function d(b, c, d) {
     a.WeixinJSBridge ? WeixinJSBridge.on(b, function (a) {
-        d && d.trigger && d.trigger(a), h(b, a, c)
-      }) : d ? k(b, d) : k(b, c)
+      d && d.trigger && d.trigger(a), h(b, a, c)
+    }) : d ? k(b, d) : k(b, c)
   }
 
   function e(a) {
@@ -304,13 +304,13 @@
         c("downloadImage", {serverId: a.serverId, isShowProgressTips: 0 == a.isShowProgressTips ? 0 : 1}, a)
       }, getLocalImgData: function (a) {
         G === !1 ? (G = !0, c("getLocalImgData", {localId: a.localId}, function () {
-            return a._complete = function (a) {
-              if (G = !1, H.length > 0) {
-                var b = H.shift();
-                wx.getLocalImgData(b)
-              }
-            }, a
-          }())) : H.push(a)
+          return a._complete = function (a) {
+            if (G = !1, H.length > 0) {
+              var b = H.shift();
+              wx.getLocalImgData(b)
+            }
+          }, a
+        }())) : H.push(a)
       }, getNetworkType: function (a) {
         var b = function (a) {
           var b = a.errMsg;
